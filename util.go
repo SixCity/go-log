@@ -1,15 +1,33 @@
 package main
 
+import "reflect"
 
+type PersonInfo struct {
+	Code    int8        `json:"code"`
+	Data    interface{} `json:"data"`
+	Message string      `json:"message"`
+}
 
-// JSONMap is
-func JSONMap(data string) (iMap map[string]string) {
+// JSM is
+func JSM(data interface{}) (req PersonInfo) {
 
-	iMap = map[string]string{
-		"code":    "",
-		"data":    data,
-		"message": "",
+	req = PersonInfo{
+		Code:    0,
+		Data:    data,
+		Message: "word",
 	}
 
-	return iMap
+	return req
+}
+
+//St2Map is
+func St2Map(obj interface{}) map[string]interface{} {
+	t := reflect.TypeOf(obj)
+	v := reflect.ValueOf(obj)
+
+	var data = make(map[string]interface{})
+	for i := 0; i < t.NumField(); i++ {
+		data[t.Field(i).Name] = v.Field(i).Interface()
+	}
+	return data
 }
