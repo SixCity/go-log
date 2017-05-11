@@ -20,6 +20,17 @@ func JSM(data interface{}) (req PersonInfo) {
 	return req
 }
 
+// MapY is ...
+func MapY(code int, message string, data interface{}) (iMap map[string]interface{}) {
+	iMap = make(map[string]interface{})
+
+	iMap["code"] = code
+	iMap["msg"] = message
+	iMap["data"] = data
+
+	return iMap
+}
+
 //St2Map is
 func St2Map(obj interface{}) map[string]interface{} {
 	t := reflect.TypeOf(obj)
