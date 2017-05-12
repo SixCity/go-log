@@ -1,6 +1,9 @@
 package main
 
-import "reflect"
+import (
+	"fmt"
+	"reflect"
+)
 
 type PersonInfo struct {
 	Code    int8        `json:"code"`
@@ -41,4 +44,17 @@ func St2Map(obj interface{}) map[string]interface{} {
 		data[t.Field(i).Name] = v.Field(i).Interface()
 	}
 	return data
+}
+
+// CheckErr is ...
+func CheckErr(err error) {
+
+	if err != nil {
+
+		fmt.Println(err)
+
+		panic(err)
+
+	}
+
 }
