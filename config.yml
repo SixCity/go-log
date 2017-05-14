@@ -1,0 +1,9 @@
+appname: cityLog
+
+db:
+    name:     gotest
+    user:     root
+    password: root
+    port:     3306
+    host:     127.0.0.1
+    option:   charset=utf8&parseTime=True
