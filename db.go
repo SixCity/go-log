@@ -39,13 +39,5 @@ func init() {
 		panic("failed to connect database")
 	}
 	defer Idb.Close()
-	// Migrate the schema
-	Idb.AutoMigrate(&Product{})
-	// Create
-	Idb.Create(&Product{Code: "L1212", Price: 1000})
-	// Read
-	var product Product
-	//Idb.First(&product, 1) // find product with id 1
-	Idb.Find(&product)
-	fmt.Println(product)
+
 }

@@ -40,6 +40,16 @@ func HandTime(c echo.Context) error {
 	var array5 = [...]string{3: "Tom", 2: "Alice"}
 	fmt.Printf("array5--- type:%T \n", array5)
 
+	// Migrate the schema
+	Idb.AutoMigrate(&Product{})
+	// Create
+	Idb.Create(&Product{Code: "L1212", Price: 1000})
+	// Read
+	var product Product
+	//Idb.First(&product, 1) // find product with id 1
+	Idb.Find(&product)
+	fmt.Println(product)
+
 	return c.JSON(http.StatusOK, MapY(http.StatusTooManyRequests, http.StatusText(401), data))
 }
 
