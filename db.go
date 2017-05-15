@@ -34,10 +34,16 @@ func init() {
 
 	uri := uDB.User + ":" + uDB.Password + "@tcp(" + uDB.Host + ":" + uDB.Port + ")/" + uDB.Name + "?" + uDB.Option
 
+	fmt.Println(uri)
+
 	Idb, err = gorm.Open("mysql", uri)
+	Idb.LogMode(true)
+
 	if err != nil {
 		panic("failed to connect database")
 	}
-	defer Idb.Close()
+
+	//Idb.AutoMigrate(&Product{})
+	Idb.AutoMigrate(&RecordLogs{})
 
 }

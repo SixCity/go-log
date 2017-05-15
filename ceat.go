@@ -27,8 +27,8 @@ type Refund struct {
 func Celt() {
 	var m AliaRemoteReaStrict
 	m.Ono = "12345"
-	m.OrderItem = append(m.OrderItem, Item{Ono: "Shanghai_VPN", Oid: 1})
-	m.OrderItem = append(m.OrderItem, Item{Ono: "Beijing_VPN", Oid: 2})
+	m.OrderItem = append(m.OrderItem, Item{Ono: "Shang", Oid: 1})
+	m.OrderItem = append(m.OrderItem, Item{Ono: "Bei", Oid: 2})
 	for i := 1; i < 6; i++ {
 		str := []byte("物品")
 		str = strconv.AppendInt(str, int64(i), 10)

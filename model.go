@@ -1,12 +1,16 @@
 package main
 
-import (
-	"time"
-)
+import "time"
 
-type Product struct {
-	ID        uint
+type RecordLogs struct {
+	Id        int    `gorm:"primary_key;AUTO_INCREMENT" form:"id" json:"id"`
+	Type      string `gorm:"not null" form:"type" query:"type" json:"type"`
+	Model     string `gorm:"not null" form:"model" query:"model" json:"model"`
+	Content   string `gorm:"not null" form:"content" query:"content"  json:"content"`
 	CreatedAt time.Time
-	Code      string
-	Price     int
+}
+
+type AuthKey struct {
+	Id  int    `gorm:"primary_key;AUTO_INCREMENT" form:"id" json:"id"`
+	Key string `form:"key" json:"key"`
 }
