@@ -42,7 +42,7 @@ func MiddlewareKey(next echo.HandlerFunc) echo.HandlerFunc {
 func ServerHeader(next echo.HandlerFunc) echo.HandlerFunc {
 	return func(c echo.Context) error {
 		c.Response().Header().Set(echo.HeaderServer, "city/1.1")
-		c.Response().Header().Set("Api-Version", "1")
+		c.Response().Header().Set("Api-Version", "1.0.0")
 		return next(c)
 	}
 }
