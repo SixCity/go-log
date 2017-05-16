@@ -34,11 +34,12 @@ func HandLog(c echo.Context) error {
 
 	fmt.Println(recordLog)
 
-	if recordLog.Type == "" && recordLog.Content == "" {
+	if recordLog.Type == "" || recordLog.Content == "" || recordLog.AppId == "" {
 
 		return c.JSON(422, MapY(422, "error", "Fields are empty"))
 	}
 
+	recordLog.Ip = c.RealIP()
 	Idb.Create(&recordLog)
 
 	return c.JSON(http.StatusOK, MapY(200, "ok", recordLog))
