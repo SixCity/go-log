@@ -8,6 +8,7 @@ type RecordLogs struct {
 	Model     string `gorm:"not null" form:"model" query:"model" json:"model"`
 	Content   string `gorm:"not null" form:"content" query:"content"  json:"content"`
 	AppId     string `gorm:"not null" form:"app_id" query:"app_id" json:"app_id"`
+	Version   string `gorm:"not null" form:"version" query:"version" json:"version"`
 	Ip        string `gorm:"not null" form:"ip" query:"ip" json:"ip"`
 	User      string `form:"user" query:"user" json:"user"`
 	Serves    string `form:"serves" query:"serves" json:"serves"`
